@@ -1,0 +1,1276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="irods.test.test_icommands_file_operations.Test_ICommands_File_Operations_3-20240805213029" tests="11" file="irods/test/test_icommands_file_operations.py" time="81.283" timestamp="2024-08-05T21:31:50" failures="11" errors="0" skipped="0">
+	<testcase classname="irods.test.test_icommands_file_operations.Test_ICommands_File_Operations_3" name="test_cancel_large_iput_for_create" time="0.000" timestamp="0001-01-01T00:00:00" file="scripts/irods/test/test_icommands_file_operations.py" line="505">
+		<failure type="AssertionError" message=""><![CDATA[Traceback (most recent call last):
+  File "/var/lib/irods/scripts/irods/test/test_icommands_file_operations.py", line 526, in test_cancel_large_iput_for_create
+    self.user0.assert_icommand('ils -l', 'STDOUT_SINGLELINE', [file_name, str(new_size)])
+  File "/var/lib/irods/scripts/irods/test/session.py", line 162, in assert_icommand
+    return assert_command(*args, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 76, in assert_command
+    return _assert_helper(*args, should_fail=False, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 104, in _assert_helper
+    assert result
+AssertionError
+]]></failure>
+		<system-out><![CDATA[ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin mkuser otherrods rodsadmin] --- 
+Assert Command: iadmin mkuser otherrods rodsadmin
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin moduser otherrods password rods] --- 
+Assert Command: iadmin moduser otherrods password rods
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [imkdir /tempZone/home/otherrods/2024-08-05Z21:30:30--irods-testing-_z3qkd_e] --- 
+Assert Command: imkdir /tempZone/home/otherrods/2024-08-05Z21:30:30--irods-testing-_z3qkd_e
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [icd /tempZone/home/otherrods/2024-08-05Z21:30:30--irods-testing-_z3qkd_e] --- 
+Assert Command: icd /tempZone/home/otherrods/2024-08-05Z21:30:30--irods-testing-_z3qkd_e
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin mkuser alice rodsuser] --- 
+Assert Command: iadmin mkuser alice rodsuser
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin moduser alice password apass] --- 
+Assert Command: iadmin moduser alice password apass
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [alice#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [alice#tempZone] [imkdir /tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o] --- 
+Assert Command: imkdir /tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [alice#tempZone] [icd /tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o] --- 
+Assert Command: icd /tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin mkuser bobby rodsuser] --- 
+Assert Command: iadmin mkuser bobby rodsuser
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin moduser bobby password bpass] --- 
+Assert Command: iadmin moduser bobby password bpass
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [bobby#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [bobby#tempZone] [imkdir /tempZone/home/bobby/2024-08-05Z21:30:32--irods-testing-33hlubps] --- 
+Assert Command: imkdir /tempZone/home/bobby/2024-08-05Z21:30:32--irods-testing-33hlubps
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [bobby#tempZone] [icd /tempZone/home/bobby/2024-08-05Z21:30:32--irods-testing-33hlubps] --- 
+Assert Command: icd /tempZone/home/bobby/2024-08-05Z21:30:32--irods-testing-33hlubps
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+run_resource_setup - BEGIN
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [iadmin mkresc TestResc unixfilesystem 226b6894d9f2:/tmp/irods/TestResc] --- 
+Assert Command: iadmin mkresc TestResc unixfilesystem 226b6894d9f2:/tmp/irods/TestResc
+Expecting STDOUT_SINGLELINE: ['unixfilesystem']
+  stdout:
+    | Creating resource:
+    | Name:		"TestResc"
+    | Type:		"unixfilesystem"
+    | Host:		"226b6894d9f2"
+    | Path:		"/tmp/irods/TestResc"
+    | Context:	""
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [iadmin mkresc AnotherResc unixfilesystem 226b6894d9f2:/tmp/irods/AnotherResc] --- 
+Assert Command: iadmin mkresc AnotherResc unixfilesystem 226b6894d9f2:/tmp/irods/AnotherResc
+Expecting STDOUT_SINGLELINE: ['unixfilesystem']
+  stdout:
+    | Creating resource:
+    | Name:		"AnotherResc"
+    | Type:		"unixfilesystem"
+    | Host:		"226b6894d9f2"
+    | Path:		"/tmp/irods/AnotherResc"
+    | Context:	""
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [imkdir testdir] --- 
+Assert Command: imkdir testdir
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [iput testfile.txt] --- 
+Assert Command: iput testfile.txt
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [icp testfile.txt ../../public/] --- 
+Assert Command: icp testfile.txt ../../public/
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [ichmod read alice ../../public/testfile.txt] --- 
+Assert Command: ichmod read alice ../../public/testfile.txt
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [ichmod write bobby ../../public/testfile.txt] --- 
+Assert Command: ichmod write bobby ../../public/testfile.txt
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+run_resource_setup - END
+ --- IrodsSession: icommand executed by [alice#tempZone] [iquest %s select RESC_VAULT_PATH where RESC_NAME = 'demoResc'] --- 
+
+
+INTERRUPTING iCMD
+running icommand: alice[iput '/tmp/irods-test-icommands-recursive/test_cancel_large_put/junk0000']
+  filename set to: [/var/lib/irods/Vault/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o/junk0000]
+  filesize set to: [10] bytes
+ --- IrodsSession: icommand executed by [alice#tempZone] [ils -l] --- 
+Assert Command: ils -l
+Expecting STDOUT_SINGLELINE: ['junk0000', '813694976']
+  stdout:
+    | /tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o:
+    |   alice             0 demoResc            0 2024-08-05.21:30 ? junk0000
+  stderr:
+    | 
+Output not found
+
+FAILED TESTING ASSERTION
+
+
+run_resource_teardown - BEGIN
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [icd] --- 
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [irm testfile.txt ../public/testfile.txt] --- 
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [irm -rf ../../bundle] --- 
+ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [icd] --- 
+Assert Command: icd
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [irm -rf /tempZone/home/otherrods/2024-08-05Z21:30:30--irods-testing-_z3qkd_e] --- 
+Assert Command: irm -rf /tempZone/home/otherrods/2024-08-05Z21:30:30--irods-testing-_z3qkd_e
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [irmtrash] --- 
+Assert Command: irmtrash
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin rmuser otherrods] --- 
+Assert Command: iadmin rmuser otherrods
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [alice#tempZone] [icd] --- 
+Assert Command: icd
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [alice#tempZone] [irm -rf /tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o] --- 
+Assert Command: irm -rf /tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | remote addresses: 10.201.24.4 ERROR: rmUtil: rm error for /tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o, status = -821000 status = -821000 CAT_COLLECTION_NOT_EMPTY
+Unexpected output on stderr
+
+FAILED TESTING ASSERTION
+
+
+]]></system-out>
+	</testcase>
+	<testcase classname="irods.test.test_icommands_file_operations.Test_ICommands_File_Operations_3" name="test_cancel_large_iput_for_create" time="74.809" timestamp="2024-08-05T21:31:44" file="scripts/irods/test/test_icommands_file_operations.py" line="505">
+		<failure type="AssertionError" message=""><![CDATA[Traceback (most recent call last):
+  File "/var/lib/irods/scripts/irods/test/test_icommands_file_operations.py", line 360, in tearDown
+    super(Test_ICommands_File_Operations_3, self).tearDown()
+  File "/var/lib/irods/scripts/irods/test/resource_suite.py", line 69, in tearDown
+    super(ResourceBase, self).tearDown()
+  File "/var/lib/irods/scripts/irods/test/session.py", line 82, in tearDown
+    session.__exit__()
+  File "/var/lib/irods/scripts/irods/test/session.py", line 225, in __exit__
+    self.assert_icommand(['irm', '-rf', self.session_collection])
+  File "/var/lib/irods/scripts/irods/test/session.py", line 162, in assert_icommand
+    return assert_command(*args, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 76, in assert_command
+    return _assert_helper(*args, should_fail=False, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 104, in _assert_helper
+    assert result
+AssertionError
+]]></failure>
+		<system-out><![CDATA[ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin mkuser otherrods rodsadmin] --- 
+Assert Command: iadmin mkuser otherrods rodsadmin
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin moduser otherrods password rods] --- 
+Assert Command: iadmin moduser otherrods password rods
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [imkdir /tempZone/home/otherrods/2024-08-05Z21:30:30--irods-testing-_z3qkd_e] --- 
+Assert Command: imkdir /tempZone/home/otherrods/2024-08-05Z21:30:30--irods-testing-_z3qkd_e
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [icd /tempZone/home/otherrods/2024-08-05Z21:30:30--irods-testing-_z3qkd_e] --- 
+Assert Command: icd /tempZone/home/otherrods/2024-08-05Z21:30:30--irods-testing-_z3qkd_e
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin mkuser alice rodsuser] --- 
+Assert Command: iadmin mkuser alice rodsuser
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin moduser alice password apass] --- 
+Assert Command: iadmin moduser alice password apass
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [alice#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [alice#tempZone] [imkdir /tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o] --- 
+Assert Command: imkdir /tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [alice#tempZone] [icd /tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o] --- 
+Assert Command: icd /tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin mkuser bobby rodsuser] --- 
+Assert Command: iadmin mkuser bobby rodsuser
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin moduser bobby password bpass] --- 
+Assert Command: iadmin moduser bobby password bpass
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [bobby#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [bobby#tempZone] [imkdir /tempZone/home/bobby/2024-08-05Z21:30:32--irods-testing-33hlubps] --- 
+Assert Command: imkdir /tempZone/home/bobby/2024-08-05Z21:30:32--irods-testing-33hlubps
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [bobby#tempZone] [icd /tempZone/home/bobby/2024-08-05Z21:30:32--irods-testing-33hlubps] --- 
+Assert Command: icd /tempZone/home/bobby/2024-08-05Z21:30:32--irods-testing-33hlubps
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+run_resource_setup - BEGIN
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [iadmin mkresc TestResc unixfilesystem 226b6894d9f2:/tmp/irods/TestResc] --- 
+Assert Command: iadmin mkresc TestResc unixfilesystem 226b6894d9f2:/tmp/irods/TestResc
+Expecting STDOUT_SINGLELINE: ['unixfilesystem']
+  stdout:
+    | Creating resource:
+    | Name:		"TestResc"
+    | Type:		"unixfilesystem"
+    | Host:		"226b6894d9f2"
+    | Path:		"/tmp/irods/TestResc"
+    | Context:	""
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [iadmin mkresc AnotherResc unixfilesystem 226b6894d9f2:/tmp/irods/AnotherResc] --- 
+Assert Command: iadmin mkresc AnotherResc unixfilesystem 226b6894d9f2:/tmp/irods/AnotherResc
+Expecting STDOUT_SINGLELINE: ['unixfilesystem']
+  stdout:
+    | Creating resource:
+    | Name:		"AnotherResc"
+    | Type:		"unixfilesystem"
+    | Host:		"226b6894d9f2"
+    | Path:		"/tmp/irods/AnotherResc"
+    | Context:	""
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [imkdir testdir] --- 
+Assert Command: imkdir testdir
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [iput testfile.txt] --- 
+Assert Command: iput testfile.txt
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [icp testfile.txt ../../public/] --- 
+Assert Command: icp testfile.txt ../../public/
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [ichmod read alice ../../public/testfile.txt] --- 
+Assert Command: ichmod read alice ../../public/testfile.txt
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [ichmod write bobby ../../public/testfile.txt] --- 
+Assert Command: ichmod write bobby ../../public/testfile.txt
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+run_resource_setup - END
+ --- IrodsSession: icommand executed by [alice#tempZone] [iquest %s select RESC_VAULT_PATH where RESC_NAME = 'demoResc'] --- 
+
+
+INTERRUPTING iCMD
+running icommand: alice[iput '/tmp/irods-test-icommands-recursive/test_cancel_large_put/junk0000']
+  filename set to: [/var/lib/irods/Vault/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o/junk0000]
+  filesize set to: [10] bytes
+ --- IrodsSession: icommand executed by [alice#tempZone] [ils -l] --- 
+Assert Command: ils -l
+Expecting STDOUT_SINGLELINE: ['junk0000', '813694976']
+  stdout:
+    | /tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o:
+    |   alice             0 demoResc            0 2024-08-05.21:30 ? junk0000
+  stderr:
+    | 
+Output not found
+
+FAILED TESTING ASSERTION
+
+
+run_resource_teardown - BEGIN
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [icd] --- 
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [irm testfile.txt ../public/testfile.txt] --- 
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [irm -rf ../../bundle] --- 
+ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [icd] --- 
+Assert Command: icd
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [irm -rf /tempZone/home/otherrods/2024-08-05Z21:30:30--irods-testing-_z3qkd_e] --- 
+Assert Command: irm -rf /tempZone/home/otherrods/2024-08-05Z21:30:30--irods-testing-_z3qkd_e
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [irmtrash] --- 
+Assert Command: irmtrash
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin rmuser otherrods] --- 
+Assert Command: iadmin rmuser otherrods
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [alice#tempZone] [icd] --- 
+Assert Command: icd
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [alice#tempZone] [irm -rf /tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o] --- 
+Assert Command: irm -rf /tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | remote addresses: 10.201.24.4 ERROR: rmUtil: rm error for /tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o, status = -821000 status = -821000 CAT_COLLECTION_NOT_EMPTY
+Unexpected output on stderr
+
+FAILED TESTING ASSERTION
+
+
+]]></system-out>
+	</testcase>
+	<testcase classname="irods.test.test_icommands_file_operations.Test_ICommands_File_Operations_3" name="test_cancel_large_iput_for_overwrite__issue_3091" time="1.766" timestamp="2024-08-05T21:31:45" file="scripts/irods/test/test_icommands_file_operations.py" line="528">
+		<failure type="AssertionError" message=""><![CDATA[Traceback (most recent call last):
+  File "/var/lib/irods/scripts/irods/test/test_icommands_file_operations.py", line 353, in setUp
+    super(Test_ICommands_File_Operations_3, self).setUp()
+  File "/var/lib/irods/scripts/irods/test/resource_suite.py", line 32, in setUp
+    super(ResourceBase, self).setUp()
+  File "/var/lib/irods/scripts/irods/test/session.py", line 75, in setUp
+    self.user_sessions = [mkuser_and_return_session('rodsuser', name, password, lib.get_hostname())
+  File "/var/lib/irods/scripts/irods/test/session.py", line 75, in <listcomp>
+    self.user_sessions = [mkuser_and_return_session('rodsuser', name, password, lib.get_hostname())
+  File "/var/lib/irods/scripts/irods/test/session.py", line 45, in mkuser_and_return_session
+    admin_session.assert_icommand(
+  File "/var/lib/irods/scripts/irods/test/session.py", line 162, in assert_icommand
+    return assert_command(*args, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 76, in assert_command
+    return _assert_helper(*args, should_fail=False, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 104, in _assert_helper
+    assert result
+AssertionError
+]]></failure>
+		<system-out><![CDATA[ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin mkuser otherrods rodsadmin] --- 
+Assert Command: iadmin mkuser otherrods rodsadmin
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin moduser otherrods password rods] --- 
+Assert Command: iadmin moduser otherrods password rods
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [imkdir /tempZone/home/otherrods/2024-08-05Z21:31:44--irods-testing-k2oxaama] --- 
+Assert Command: imkdir /tempZone/home/otherrods/2024-08-05Z21:31:44--irods-testing-k2oxaama
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [otherrods#tempZone] [icd /tempZone/home/otherrods/2024-08-05Z21:31:44--irods-testing-k2oxaama] --- 
+Assert Command: icd /tempZone/home/otherrods/2024-08-05Z21:31:44--irods-testing-k2oxaama
+Expecting EMPTY: ['']
+  stdout:
+    | 
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin mkuser alice rodsuser] --- 
+Assert Command: iadmin mkuser alice rodsuser
+Expecting EMPTY: ['']
+  stdout:
+    | Level 0: DEBUG: 
+    | 
+  stderr:
+    | remote addresses: 10.201.24.4 ERROR: rcGeneralAdmin failed with error -806000 CAT_SQL_ERR 
+Unexpected output on stderr
+
+FAILED TESTING ASSERTION
+
+
+]]></system-out>
+	</testcase>
+	<testcase classname="irods.test.test_icommands_file_operations.Test_ICommands_File_Operations_3" name="test_delay_in_dynamic_pep__3342" time="0.555" timestamp="2024-08-05T21:31:46" file="scripts/irods/test/test_icommands_file_operations.py" line="602">
+		<failure type="AssertionError" message=""><![CDATA[Traceback (most recent call last):
+  File "/var/lib/irods/scripts/irods/test/test_icommands_file_operations.py", line 353, in setUp
+    super(Test_ICommands_File_Operations_3, self).setUp()
+  File "/var/lib/irods/scripts/irods/test/resource_suite.py", line 32, in setUp
+    super(ResourceBase, self).setUp()
+  File "/var/lib/irods/scripts/irods/test/session.py", line 73, in setUp
+    self.admin_sessions = [mkuser_and_return_session('rodsadmin', name, password, lib.get_hostname())
+  File "/var/lib/irods/scripts/irods/test/session.py", line 73, in <listcomp>
+    self.admin_sessions = [mkuser_and_return_session('rodsadmin', name, password, lib.get_hostname())
+  File "/var/lib/irods/scripts/irods/test/session.py", line 45, in mkuser_and_return_session
+    admin_session.assert_icommand(
+  File "/var/lib/irods/scripts/irods/test/session.py", line 162, in assert_icommand
+    return assert_command(*args, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 76, in assert_command
+    return _assert_helper(*args, should_fail=False, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 104, in _assert_helper
+    assert result
+AssertionError
+]]></failure>
+		<system-out><![CDATA[ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin mkuser otherrods rodsadmin] --- 
+Assert Command: iadmin mkuser otherrods rodsadmin
+Expecting EMPTY: ['']
+  stdout:
+    | Level 0: DEBUG: 
+    | 
+  stderr:
+    | remote addresses: 10.201.24.4 ERROR: rcGeneralAdmin failed with error -806000 CAT_SQL_ERR 
+Unexpected output on stderr
+
+FAILED TESTING ASSERTION
+
+
+]]></system-out>
+	</testcase>
+	<testcase classname="irods.test.test_icommands_file_operations.Test_ICommands_File_Operations_3" name="test_ils_connection_refused_2948" time="0.602" timestamp="2024-08-05T21:31:47" file="scripts/irods/test/test_icommands_file_operations.py" line="674">
+		<failure type="AssertionError" message=""><![CDATA[Traceback (most recent call last):
+  File "/var/lib/irods/scripts/irods/test/test_icommands_file_operations.py", line 353, in setUp
+    super(Test_ICommands_File_Operations_3, self).setUp()
+  File "/var/lib/irods/scripts/irods/test/resource_suite.py", line 32, in setUp
+    super(ResourceBase, self).setUp()
+  File "/var/lib/irods/scripts/irods/test/session.py", line 73, in setUp
+    self.admin_sessions = [mkuser_and_return_session('rodsadmin', name, password, lib.get_hostname())
+  File "/var/lib/irods/scripts/irods/test/session.py", line 73, in <listcomp>
+    self.admin_sessions = [mkuser_and_return_session('rodsadmin', name, password, lib.get_hostname())
+  File "/var/lib/irods/scripts/irods/test/session.py", line 45, in mkuser_and_return_session
+    admin_session.assert_icommand(
+  File "/var/lib/irods/scripts/irods/test/session.py", line 162, in assert_icommand
+    return assert_command(*args, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 76, in assert_command
+    return _assert_helper(*args, should_fail=False, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 104, in _assert_helper
+    assert result
+AssertionError
+]]></failure>
+		<system-out><![CDATA[ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin mkuser otherrods rodsadmin] --- 
+Assert Command: iadmin mkuser otherrods rodsadmin
+Expecting EMPTY: ['']
+  stdout:
+    | Level 0: DEBUG: 
+    | 
+  stderr:
+    | remote addresses: 10.201.24.4 ERROR: rcGeneralAdmin failed with error -806000 CAT_SQL_ERR 
+Unexpected output on stderr
+
+FAILED TESTING ASSERTION
+
+
+]]></system-out>
+	</testcase>
+	<testcase classname="irods.test.test_icommands_file_operations.Test_ICommands_File_Operations_3" name="test_iphymv_root" time="0.600" timestamp="2024-08-05T21:31:47" file="scripts/irods/test/test_icommands_file_operations.py" line="592">
+		<failure type="AssertionError" message=""><![CDATA[Traceback (most recent call last):
+  File "/var/lib/irods/scripts/irods/test/test_icommands_file_operations.py", line 353, in setUp
+    super(Test_ICommands_File_Operations_3, self).setUp()
+  File "/var/lib/irods/scripts/irods/test/resource_suite.py", line 32, in setUp
+    super(ResourceBase, self).setUp()
+  File "/var/lib/irods/scripts/irods/test/session.py", line 73, in setUp
+    self.admin_sessions = [mkuser_and_return_session('rodsadmin', name, password, lib.get_hostname())
+  File "/var/lib/irods/scripts/irods/test/session.py", line 73, in <listcomp>
+    self.admin_sessions = [mkuser_and_return_session('rodsadmin', name, password, lib.get_hostname())
+  File "/var/lib/irods/scripts/irods/test/session.py", line 45, in mkuser_and_return_session
+    admin_session.assert_icommand(
+  File "/var/lib/irods/scripts/irods/test/session.py", line 162, in assert_icommand
+    return assert_command(*args, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 76, in assert_command
+    return _assert_helper(*args, should_fail=False, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 104, in _assert_helper
+    assert result
+AssertionError
+]]></failure>
+		<system-out><![CDATA[ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin mkuser otherrods rodsadmin] --- 
+Assert Command: iadmin mkuser otherrods rodsadmin
+Expecting EMPTY: ['']
+  stdout:
+    | Level 0: DEBUG: 
+    | 
+  stderr:
+    | remote addresses: 10.201.24.4 ERROR: rcGeneralAdmin failed with error -806000 CAT_SQL_ERR 
+Unexpected output on stderr
+
+FAILED TESTING ASSERTION
+
+
+]]></system-out>
+	</testcase>
+	<testcase classname="irods.test.test_icommands_file_operations.Test_ICommands_File_Operations_3" name="test_iput_bulk_check_acpostprocforput__2841" time="0.592" timestamp="2024-08-05T21:31:48" file="scripts/irods/test/test_icommands_file_operations.py" line="628">
+		<failure type="AssertionError" message=""><![CDATA[Traceback (most recent call last):
+  File "/var/lib/irods/scripts/irods/test/test_icommands_file_operations.py", line 353, in setUp
+    super(Test_ICommands_File_Operations_3, self).setUp()
+  File "/var/lib/irods/scripts/irods/test/resource_suite.py", line 32, in setUp
+    super(ResourceBase, self).setUp()
+  File "/var/lib/irods/scripts/irods/test/session.py", line 73, in setUp
+    self.admin_sessions = [mkuser_and_return_session('rodsadmin', name, password, lib.get_hostname())
+  File "/var/lib/irods/scripts/irods/test/session.py", line 73, in <listcomp>
+    self.admin_sessions = [mkuser_and_return_session('rodsadmin', name, password, lib.get_hostname())
+  File "/var/lib/irods/scripts/irods/test/session.py", line 45, in mkuser_and_return_session
+    admin_session.assert_icommand(
+  File "/var/lib/irods/scripts/irods/test/session.py", line 162, in assert_icommand
+    return assert_command(*args, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 76, in assert_command
+    return _assert_helper(*args, should_fail=False, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 104, in _assert_helper
+    assert result
+AssertionError
+]]></failure>
+		<system-out><![CDATA[ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin mkuser otherrods rodsadmin] --- 
+Assert Command: iadmin mkuser otherrods rodsadmin
+Expecting EMPTY: ['']
+  stdout:
+    | Level 0: DEBUG: 
+    | 
+  stderr:
+    | remote addresses: 10.201.24.4 ERROR: rcGeneralAdmin failed with error -806000 CAT_SQL_ERR 
+Unexpected output on stderr
+
+FAILED TESTING ASSERTION
+
+
+]]></system-out>
+	</testcase>
+	<testcase classname="irods.test.test_icommands_file_operations.Test_ICommands_File_Operations_3" name="test_irsync_r_nested_coll_to_coll_large_files" time="0.591" timestamp="2024-08-05T21:31:48" file="scripts/irods/test/test_icommands_file_operations.py" line="362">
+		<failure type="AssertionError" message=""><![CDATA[Traceback (most recent call last):
+  File "/var/lib/irods/scripts/irods/test/test_icommands_file_operations.py", line 353, in setUp
+    super(Test_ICommands_File_Operations_3, self).setUp()
+  File "/var/lib/irods/scripts/irods/test/resource_suite.py", line 32, in setUp
+    super(ResourceBase, self).setUp()
+  File "/var/lib/irods/scripts/irods/test/session.py", line 73, in setUp
+    self.admin_sessions = [mkuser_and_return_session('rodsadmin', name, password, lib.get_hostname())
+  File "/var/lib/irods/scripts/irods/test/session.py", line 73, in <listcomp>
+    self.admin_sessions = [mkuser_and_return_session('rodsadmin', name, password, lib.get_hostname())
+  File "/var/lib/irods/scripts/irods/test/session.py", line 45, in mkuser_and_return_session
+    admin_session.assert_icommand(
+  File "/var/lib/irods/scripts/irods/test/session.py", line 162, in assert_icommand
+    return assert_command(*args, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 76, in assert_command
+    return _assert_helper(*args, should_fail=False, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 104, in _assert_helper
+    assert result
+AssertionError
+]]></failure>
+		<system-out><![CDATA[ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin mkuser otherrods rodsadmin] --- 
+Assert Command: iadmin mkuser otherrods rodsadmin
+Expecting EMPTY: ['']
+  stdout:
+    | Level 0: DEBUG: 
+    | 
+  stderr:
+    | remote addresses: 10.201.24.4 ERROR: rcGeneralAdmin failed with error -806000 CAT_SQL_ERR 
+Unexpected output on stderr
+
+FAILED TESTING ASSERTION
+
+
+]]></system-out>
+	</testcase>
+	<testcase classname="irods.test.test_icommands_file_operations.Test_ICommands_File_Operations_3" name="test_irsync_r_nested_coll_to_dir" time="0.628" timestamp="2024-08-05T21:31:49" file="scripts/irods/test/test_icommands_file_operations.py" line="421">
+		<failure type="AssertionError" message=""><![CDATA[Traceback (most recent call last):
+  File "/var/lib/irods/scripts/irods/test/test_icommands_file_operations.py", line 353, in setUp
+    super(Test_ICommands_File_Operations_3, self).setUp()
+  File "/var/lib/irods/scripts/irods/test/resource_suite.py", line 32, in setUp
+    super(ResourceBase, self).setUp()
+  File "/var/lib/irods/scripts/irods/test/session.py", line 73, in setUp
+    self.admin_sessions = [mkuser_and_return_session('rodsadmin', name, password, lib.get_hostname())
+  File "/var/lib/irods/scripts/irods/test/session.py", line 73, in <listcomp>
+    self.admin_sessions = [mkuser_and_return_session('rodsadmin', name, password, lib.get_hostname())
+  File "/var/lib/irods/scripts/irods/test/session.py", line 45, in mkuser_and_return_session
+    admin_session.assert_icommand(
+  File "/var/lib/irods/scripts/irods/test/session.py", line 162, in assert_icommand
+    return assert_command(*args, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 76, in assert_command
+    return _assert_helper(*args, should_fail=False, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 104, in _assert_helper
+    assert result
+AssertionError
+]]></failure>
+		<system-out><![CDATA[ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin mkuser otherrods rodsadmin] --- 
+Assert Command: iadmin mkuser otherrods rodsadmin
+Expecting EMPTY: ['']
+  stdout:
+    | Level 0: DEBUG: 
+    | 
+  stderr:
+    | remote addresses: 10.201.24.4 ERROR: rcGeneralAdmin failed with error -806000 CAT_SQL_ERR 
+Unexpected output on stderr
+
+FAILED TESTING ASSERTION
+
+
+]]></system-out>
+	</testcase>
+	<testcase classname="irods.test.test_icommands_file_operations.Test_ICommands_File_Operations_3" name="test_irsync_r_nested_coll_to_dir_large_files" time="0.581" timestamp="2024-08-05T21:31:50" file="scripts/irods/test/test_icommands_file_operations.py" line="463">
+		<failure type="AssertionError" message=""><![CDATA[Traceback (most recent call last):
+  File "/var/lib/irods/scripts/irods/test/test_icommands_file_operations.py", line 353, in setUp
+    super(Test_ICommands_File_Operations_3, self).setUp()
+  File "/var/lib/irods/scripts/irods/test/resource_suite.py", line 32, in setUp
+    super(ResourceBase, self).setUp()
+  File "/var/lib/irods/scripts/irods/test/session.py", line 73, in setUp
+    self.admin_sessions = [mkuser_and_return_session('rodsadmin', name, password, lib.get_hostname())
+  File "/var/lib/irods/scripts/irods/test/session.py", line 73, in <listcomp>
+    self.admin_sessions = [mkuser_and_return_session('rodsadmin', name, password, lib.get_hostname())
+  File "/var/lib/irods/scripts/irods/test/session.py", line 45, in mkuser_and_return_session
+    admin_session.assert_icommand(
+  File "/var/lib/irods/scripts/irods/test/session.py", line 162, in assert_icommand
+    return assert_command(*args, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 76, in assert_command
+    return _assert_helper(*args, should_fail=False, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 104, in _assert_helper
+    assert result
+AssertionError
+]]></failure>
+		<system-out><![CDATA[ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin mkuser otherrods rodsadmin] --- 
+Assert Command: iadmin mkuser otherrods rodsadmin
+Expecting EMPTY: ['']
+  stdout:
+    | Level 0: DEBUG: 
+    | 
+  stderr:
+    | remote addresses: 10.201.24.4 ERROR: rcGeneralAdmin failed with error -806000 CAT_SQL_ERR 
+Unexpected output on stderr
+
+FAILED TESTING ASSERTION
+
+
+]]></system-out>
+	</testcase>
+	<testcase classname="irods.test.test_icommands_file_operations.Test_ICommands_File_Operations_3" name="test_large_irods_maximum_size_for_single_buffer_in_megabytes_2880" time="0.558" timestamp="2024-08-05T21:31:50" file="scripts/irods/test/test_icommands_file_operations.py" line="668">
+		<failure type="AssertionError" message=""><![CDATA[Traceback (most recent call last):
+  File "/var/lib/irods/scripts/irods/test/test_icommands_file_operations.py", line 353, in setUp
+    super(Test_ICommands_File_Operations_3, self).setUp()
+  File "/var/lib/irods/scripts/irods/test/resource_suite.py", line 32, in setUp
+    super(ResourceBase, self).setUp()
+  File "/var/lib/irods/scripts/irods/test/session.py", line 73, in setUp
+    self.admin_sessions = [mkuser_and_return_session('rodsadmin', name, password, lib.get_hostname())
+  File "/var/lib/irods/scripts/irods/test/session.py", line 73, in <listcomp>
+    self.admin_sessions = [mkuser_and_return_session('rodsadmin', name, password, lib.get_hostname())
+  File "/var/lib/irods/scripts/irods/test/session.py", line 45, in mkuser_and_return_session
+    admin_session.assert_icommand(
+  File "/var/lib/irods/scripts/irods/test/session.py", line 162, in assert_icommand
+    return assert_command(*args, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 76, in assert_command
+    return _assert_helper(*args, should_fail=False, **kwargs)
+  File "/var/lib/irods/scripts/irods/test/command.py", line 104, in _assert_helper
+    assert result
+AssertionError
+]]></failure>
+		<system-out><![CDATA[ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iinit] --- 
+Assert Command: iinit
+Expecting STDOUT_SINGLELINE: ['']
+  stdout:
+    | WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+    | Enter your current iRODS password:
+  stderr:
+    | 
+Output found
+
+ --- IrodsSession: icommand executed by [rods#tempZone] [iadmin mkuser otherrods rodsadmin] --- 
+Assert Command: iadmin mkuser otherrods rodsadmin
+Expecting EMPTY: ['']
+  stdout:
+    | Level 0: DEBUG: 
+    | 
+  stderr:
+    | remote addresses: 10.201.24.4 ERROR: rcGeneralAdmin failed with error -806000 CAT_SQL_ERR 
+Unexpected output on stderr
+
+FAILED TESTING ASSERTION
+
+
+]]></system-out>
+	</testcase>
+</testsuite>

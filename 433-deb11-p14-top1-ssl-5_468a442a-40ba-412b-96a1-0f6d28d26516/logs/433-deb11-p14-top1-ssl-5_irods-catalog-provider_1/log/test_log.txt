@@ -1,0 +1,1148 @@
+2024-08-05T21:30:25.134Z -   DEBUG -                  controller.py: 189 - Calling stop on IrodsController
+2024-08-05T21:30:25.134Z -    INFO -                  controller.py: 190 - Stopping iRODS server...
+2024-08-05T21:30:26.949Z -    INFO -                  controller.py: 224 - Success
+2024-08-05T21:30:26.950Z -   DEBUG -                  controller.py:  62 - Calling start on IrodsController
+2024-08-05T21:30:26.950Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:26.951Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:30:26.952Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:30:26.953Z -   DEBUG -               configuration.py: 197 - Attempting to construct schema URI...
+2024-08-05T21:30:26.953Z -   DEBUG -               configuration.py: 208 - Successfully constructed schema URI.
+2024-08-05T21:30:26.953Z -   DEBUG -               configuration.py: 278 - Attempting to validate /etc/irods/server_config.json against file:///var/lib/irods/configuration_schemas/v4/server_config.json
+2024-08-05T21:30:26.953Z -   DEBUG -             json_validation.py:  78 - Loading schema from file:///var/lib/irods/configuration_schemas/v4/server_config.json
+2024-08-05T21:30:26.953Z -   DEBUG -             json_validation.py:  80 - Parsed URL: file:///var/lib/irods/configuration_schemas/v4/server_config.json
+2024-08-05T21:30:26.954Z -   DEBUG -             json_validation.py:  53 - Validating /etc/irods/server_config.json against json schema:
+2024-08-05T21:30:26.964Z -   DEBUG -             json_validation.py:  54 - {'$id': 'file:///var/lib/irods/configuration_schemas/v4/server_config.json',
+ '$schema': 'https://json-schema.org/draft/2020-12/schema',
+ 'properties': {'advanced_settings': {'properties': {'agent_factory_watcher_sleep_time_in_seconds': {'type': 'integer'},
+                                                     'default_number_of_transfer_threads': {'type': 'integer'},
+                                                     'default_temporary_password_lifetime_in_seconds': {'type': 'integer'},
+                                                     'delay_rule_executors': {'items': {'type': 'string'},
+                                                                              'type': 'array',
+                                                                              'uniqueItems': True},
+                                                     'delay_server_sleep_time_in_seconds': {'type': 'integer'},
+                                                     'dns_cache': {'properties': {'cache_clearer_sleep_time_in_seconds': {'type': 'integer'},
+                                                                                  'eviction_age_in_seconds': {'type': 'integer'},
+                                                                                  'shared_memory_size_in_bytes': {'type': 'integer'}},
+                                                                   'type': 'object'},
+                                                     'hostname_cache': {'properties': {'cache_clearer_sleep_time_in_seconds': {'type': 'integer'},
+                                                                                       'eviction_age_in_seconds': {'type': 'integer'},
+                                                                                       'shared_memory_size_in_bytes': {'type': 'integer'}},
+                                                                        'type': 'object'},
+                                                     'maximum_size_for_single_buffer_in_megabytes': {'type': 'integer'},
+                                                     'maximum_size_of_delay_queue_in_bytes': {'type': 'integer'},
+                                                     'maximum_temporary_password_lifetime_in_seconds': {'type': 'integer'},
+                                                     'migrate_delay_server_sleep_time_in_seconds': {'type': 'integer'},
+                                                     'number_of_concurrent_delay_rule_executors': {'type': 'integer'},
+                                                     'stacktrace_file_processor_sleep_time_in_seconds': {'type': 'integer'},
+                                                     'transfer_buffer_size_for_parallel_transfer_in_megabytes': {'type': 'integer'},
+                                                     'transfer_chunk_size_for_parallel_transfer_in_megabytes': {'type': 'integer'}},
+                                      'required': ['default_number_of_transfer_threads',
+                                                   'default_temporary_password_lifetime_in_seconds',
+                                                   'maximum_size_for_single_buffer_in_megabytes',
+                                                   'maximum_temporary_password_lifetime_in_seconds',
+                                                   'transfer_buffer_size_for_parallel_transfer_in_megabytes',
+                                                   'transfer_chunk_size_for_parallel_transfer_in_megabytes'],
+                                      'type': 'object'},
+                'catalog_provider_hosts': {'items': {'type': 'string'},
+                                           'minItems': 1,
+                                           'type': 'array',
+                                           'uniqueItems': True},
+                'catalog_service_role': {'enum': ['consumer', 'provider']},
+                'client_api_allowlist_policy': {'enum': ['disabled',
+                                                         'enforce']},
+                'controlled_user_connection_list': {'properties': {'control_type': {'enum': ['denylist',
+                                                                                             'allowlist']},
+                                                                   'users': {'items': {'type': 'string'},
+                                                                             'type': 'array',
+                                                                             'uniqueItems': True}},
+                                                    'type': 'object'},
+                'default_dir_mode': {'type': 'string'},
+                'default_file_mode': {'type': 'string'},
+                'default_hash_scheme': {'type': 'string'},
+                'environment_variables': {'additionalProperties': {'type': 'string'},
+                                          'type': 'object'},
+                'federation': {'items': {'properties': {'catalog_provider_hosts': {'items': {'type': 'string'},
+                                                                                   'minItems': 1,
+                                                                                   'type': 'array',
+                                                                                   'uniqueItems': True},
+                                                        'negotiation_key': {'maxLength': 32,
+                                                                            'minLength': 32,
+                                                                            'pattern': '^[A-Za-z0-9_]+$',
+                                                                            'type': 'string'},
+                                                        'zone_key': {'maxLength': 49,
+                                                                     'pattern': '^[A-Za-z0-9_]+$',
+                                                                     'type': 'string'},
+                                                        'zone_name': {'maxLength': 63,
+                                                                      'pattern': '^[A-Za-z0-9_\\.]+$',
+                                                                      'type': 'string'},
+                                                        'zone_port': {'type': 'integer'}},
+                                         'required': ['catalog_provider_hosts',
+                                                      'negotiation_key',
+                                                      'zone_key',
+                                                      'zone_name'],
+                                         'type': 'object'},
+                               'type': 'array'},
+                'host_access_control': {'$ref': 'host_access_control.json'},
+                'host_resolution': {'$ref': 'host_resolution.json'},
+                'log_level': {'items': {'properties': {'agent': {'enum': ['trace',
+                                                                          'debug',
+                                                                          'info',
+                                                                          'warn',
+                                                                          'error',
+                                                                          'critical'],
+                                                                 'maxItems': 1},
+                                                       'agent_factory': {'enum': ['trace',
+                                                                                  'debug',
+                                                                                  'info',
+                                                                                  'warn',
+                                                                                  'error',
+                                                                                  'critical'],
+                                                                         'maxItems': 1},
+                                                       'api': {'enum': ['trace',
+                                                                        'debug',
+                                                                        'info',
+                                                                        'warn',
+                                                                        'error',
+                                                                        'critical'],
+                                                               'maxItems': 1},
+                                                       'authentication': {'enum': ['trace',
+                                                                                   'debug',
+                                                                                   'info',
+                                                                                   'warn',
+                                                                                   'error',
+                                                                                   'critical'],
+                                                                          'maxItems': 1},
+                                                       'database': {'enum': ['trace',
+                                                                             'debug',
+                                                                             'info',
+                                                                             'warn',
+                                                                             'error',
+                                                                             'critical'],
+                                                                    'maxItems': 1},
+                                                       'delay_server': {'enum': ['trace',
+                                                                                 'debug',
+                                                                                 'info',
+                                                                                 'warn',
+                                                                                 'error',
+                                                                                 'critical'],
+                                                                        'maxItems': 1},
+                                                       'legacy': {'enum': ['trace',
+                                                                           'debug',
+                                                                           'info',
+                                                                           'warn',
+                                                                           'error',
+                                                                           'critical'],
+                                                                  'maxItems': 1},
+                                                       'microservice': {'enum': ['trace',
+                                                                                 'debug',
+                                                                                 'info',
+                                                                                 'warn',
+                                                                                 'error',
+                                                                                 'critical'],
+                                                                        'maxItems': 1},
+                                                       'network': {'enum': ['trace',
+                                                                            'debug',
+                                                                            'info',
+                                                                            'warn',
+                                                                            'error',
+                                                                            'critical'],
+                                                                   'maxItems': 1},
+                                                       'resource': {'enum': ['trace',
+                                                                             'debug',
+                                                                             'info',
+                                                                             'warn',
+                                                                             'error',
+                                                                             'critical'],
+                                                                    'maxItems': 1},
+                                                       'rule_engine': {'enum': ['trace',
+                                                                                'debug',
+                                                                                'info',
+                                                                                'warn',
+                                                                                'error',
+                                                                                'critical'],
+                                                                       'maxItems': 1},
+                                                       'server': {'enum': ['trace',
+                                                                           'debug',
+                                                                           'info',
+                                                                           'warn',
+                                                                           'error',
+                                                                           'critical'],
+                                                                  'maxItems': 1}}},
+                              'type': 'object'},
+                'match_hash_policy': {'type': 'string'},
+                'maximum_connections': {'minimum': 1, 'type': 'integer'},
+                'negotiation_key': {'maxLength': 32,
+                                    'minLength': 32,
+                                    'pattern': '^[A-Za-z0-9_]+$',
+                                    'type': 'string'},
+                'plugin_configuration': {'properties': {'authentication': {'properties': {},
+                                                                           'type': 'object'},
+                                                        'database': {'additionalProperties': {'$ref': 'database_config.json'},
+                                                                     'maxProperties': 1,
+                                                                     'minProperties': 1,
+                                                                     'type': 'object'},
+                                                        'network': {'properties': {},
+                                                                    'type': 'object'},
+                                                        'resource': {'properties': {},
+                                                                     'type': 'object'},
+                                                        'rule_engines': {'items': {'$ref': 'rule_engine.json'},
+                                                                         'minItems': 1,
+                                                                         'type': 'array'}},
+                                         'required': ['authentication',
+                                                      'network',
+                                                      'resource',
+                                                      'rule_engines'],
+                                         'type': 'object'},
+                'schema_name': {'type': 'string'},
+                'schema_validation_base_uri': {'type': 'string'},
+                'schema_version': {'type': 'string'},
+                'server_control_plane_encryption_algorithm': {'type': 'string'},
+                'server_control_plane_encryption_num_hash_rounds': {'type': 'integer'},
+                'server_control_plane_key': {'maxLength': 32,
+                                             'minLength': 32,
+                                             'type': 'string'},
+                'server_control_plane_port': {'type': 'integer'},
+                'server_control_plane_timeout_milliseconds': {'type': 'integer'},
+                'server_port_range_end': {'type': 'integer'},
+                'server_port_range_start': {'type': 'integer'},
+                'zone_auth_scheme': {'type': 'string'},
+                'zone_key': {'maxLength': 49,
+                             'pattern': '^[A-Za-z0-9_]+$',
+                             'type': 'string'},
+                'zone_name': {'maxLength': 63,
+                              'pattern': '^[A-Za-z0-9_\\.]+$',
+                              'type': 'string'},
+                'zone_port': {'type': 'integer'},
+                'zone_user': {'type': 'string'}},
+ 'required': ['advanced_settings',
+              'catalog_provider_hosts',
+              'catalog_service_role',
+              'client_api_allowlist_policy',
+              'controlled_user_connection_list',
+              'default_dir_mode',
+              'default_file_mode',
+              'default_hash_scheme',
+              'environment_variables',
+              'federation',
+              'host_access_control',
+              'host_resolution',
+              'log_level',
+              'match_hash_policy',
+              'negotiation_key',
+              'plugin_configuration',
+              'rule_engine_namespaces',
+              'schema_name',
+              'schema_validation_base_uri',
+              'schema_version',
+              'server_control_plane_encryption_algorithm',
+              'server_control_plane_encryption_num_hash_rounds',
+              'server_control_plane_key',
+              'server_control_plane_port',
+              'server_control_plane_timeout_milliseconds',
+              'server_port_range_end',
+              'server_port_range_start',
+              'zone_auth_scheme',
+              'zone_key',
+              'zone_name',
+              'zone_port',
+              'zone_user'],
+ 'type': 'object'}
+2024-08-05T21:30:26.977Z -    INFO -             json_validation.py:  74 - Validating [/etc/irods/server_config.json]... Success
+2024-08-05T21:30:26.977Z -   DEBUG -               configuration.py: 278 - Attempting to validate /var/lib/irods/version.json against file:///var/lib/irods/configuration_schemas/v4/version.json
+2024-08-05T21:30:26.977Z -   DEBUG -             json_validation.py:  78 - Loading schema from file:///var/lib/irods/configuration_schemas/v4/version.json
+2024-08-05T21:30:26.977Z -   DEBUG -             json_validation.py:  80 - Parsed URL: file:///var/lib/irods/configuration_schemas/v4/version.json
+2024-08-05T21:30:26.978Z -   DEBUG -             json_validation.py:  53 - Validating /var/lib/irods/version.json against json schema:
+2024-08-05T21:30:26.978Z -   DEBUG -             json_validation.py:  54 - {'$id': 'file:///var/lib/irods/configuration_schemas/v4/version.json',
+ '$schema': 'https://json-schema.org/draft/2020-12/schema',
+ 'properties': {'catalog_schema_version': {'type': 'integer'},
+                'commit_id': {'pattern': '^[0-9a-f]{40}$', 'type': 'string'},
+                'installation_time': {'format': 'date-time', 'type': 'string'},
+                'irods_version': {'type': 'string'},
+                'previous_version': {'oneOf': [{'$ref': '#'},
+                                               {'properties': {'catalog_schema_version': {'type': 'integer'},
+                                                               'commit_id': {'pattern': '^[0-9a-f]{40}$',
+                                                                             'type': 'string'},
+                                                               'configuration_schema_version': {'type': 'integer'},
+                                                               'installation_time': {'format': 'date-time',
+                                                                                     'type': 'string'},
+                                                               'irods_version': {'type': 'string'},
+                                                               'previous_version': {'$ref': '#/properties/previous_version/oneOf/1'}},
+                                                'required': ['catalog_schema_version',
+                                                             'commit_id',
+                                                             'configuration_schema_version',
+                                                             'irods_version'],
+                                                'type': 'object'}]},
+                'schema_name': {'type': 'string'},
+                'schema_version': {'type': 'string'}},
+ 'required': ['catalog_schema_version',
+              'commit_id',
+              'irods_version',
+              'schema_name',
+              'schema_version'],
+ 'type': 'object'}
+2024-08-05T21:30:26.980Z -    INFO -             json_validation.py:  74 - Validating [/var/lib/irods/version.json]... Success
+2024-08-05T21:30:26.980Z -   DEBUG -               configuration.py: 278 - Attempting to validate /var/lib/irods/.irods/irods_environment.json against file:///var/lib/irods/configuration_schemas/v4/service_account_environment.json
+2024-08-05T21:30:26.980Z -   DEBUG -             json_validation.py:  78 - Loading schema from file:///var/lib/irods/configuration_schemas/v4/service_account_environment.json
+2024-08-05T21:30:26.980Z -   DEBUG -             json_validation.py:  80 - Parsed URL: file:///var/lib/irods/configuration_schemas/v4/service_account_environment.json
+2024-08-05T21:30:26.980Z -   DEBUG -             json_validation.py:  53 - Validating /var/lib/irods/.irods/irods_environment.json against json schema:
+2024-08-05T21:30:26.981Z -   DEBUG -             json_validation.py:  54 - {'$id': 'file:///var/lib/irods/configuration_schemas/v4/service_account_environment.json',
+ '$schema': 'https://json-schema.org/draft/2020-12/schema',
+ 'allOf': [{'$ref': 'client_environment.json'}],
+ 'properties': {'irods_authentication_file': {'type': 'string'},
+                'irods_authentication_scheme': {'type': 'string'},
+                'irods_client_server_negotiation': {'enum': ['request_server_negotiation',
+                                                             'off']},
+                'irods_client_server_policy': {'enum': ['CS_NEG_REFUSE',
+                                                        'CS_NEG_REQUIRE',
+                                                        'CS_NEG_DONT_CARE']},
+                'irods_connection_pool_refresh_time_in_seconds': {'type': 'integer'},
+                'irods_cwd': {'type': 'string'},
+                'irods_debug': {'type': 'string'},
+                'irods_default_hash_scheme': {'type': 'string'},
+                'irods_default_number_of_transfer_threads': {'type': 'integer'},
+                'irods_default_resource': {'type': 'string'},
+                'irods_encryption_algorithm': {'type': 'string'},
+                'irods_encryption_key_size': {'type': 'integer'},
+                'irods_encryption_num_hash_rounds': {'type': 'integer'},
+                'irods_encryption_salt_size': {'type': 'integer'},
+                'irods_gsi_server_dn': {'type': 'string'},
+                'irods_home': {'type': 'string'},
+                'irods_log_level': {'type': 'integer'},
+                'irods_match_hash_policy': {'type': 'string'},
+                'irods_maximum_size_for_single_buffer_in_megabytes': {'type': 'integer'},
+                'irods_plugins_home': {'type': 'string'},
+                'irods_server_control_plane_encryption_algorithm': {'type': 'string'},
+                'irods_server_control_plane_encryption_num_hash_rounds': {'type': 'integer'},
+                'irods_server_control_plane_key': {'type': 'string'},
+                'irods_server_control_plane_port': {'type': 'integer'},
+                'irods_ssl_ca_certificate_file': {'type': 'string'},
+                'irods_ssl_ca_certificate_path': {'type': 'string'},
+                'irods_ssl_certificate_chain_file': {'type': 'string'},
+                'irods_ssl_certificate_key_file': {'type': 'string'},
+                'irods_ssl_dh_params_file': {'type': 'string'},
+                'irods_ssl_verify_server': {'enum': ['cert',
+                                                     'hostname',
+                                                     'none']},
+                'irods_tcp_keepalive_intvl_in_seconds': {'type': 'integer'},
+                'irods_tcp_keepalive_probes': {'type': 'integer'},
+                'irods_tcp_keepalive_time_in_seconds': {'type': 'integer'},
+                'irods_transfer_buffer_size_for_parallel_transfer_in_megabytes': {'type': 'integer'},
+                'schema_name': {'type': 'string'},
+                'schema_version': {'type': 'string'}},
+ 'required': ['irods_client_server_negotiation',
+              'irods_client_server_policy',
+              'irods_connection_pool_refresh_time_in_seconds',
+              'irods_cwd',
+              'irods_default_hash_scheme',
+              'irods_default_number_of_transfer_threads',
+              'irods_default_resource',
+              'irods_encryption_algorithm',
+              'irods_encryption_key_size',
+              'irods_encryption_num_hash_rounds',
+              'irods_encryption_salt_size',
+              'irods_home',
+              'irods_match_hash_policy',
+              'irods_maximum_size_for_single_buffer_in_megabytes',
+              'irods_server_control_plane_encryption_algorithm',
+              'irods_server_control_plane_encryption_num_hash_rounds',
+              'irods_server_control_plane_key',
+              'irods_server_control_plane_port',
+              'irods_transfer_buffer_size_for_parallel_transfer_in_megabytes',
+              'schema_name',
+              'schema_version'],
+ 'type': 'object'}
+2024-08-05T21:30:26.983Z -    INFO -             json_validation.py:  74 - Validating [/var/lib/irods/.irods/irods_environment.json]... Success
+2024-08-05T21:30:26.983Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:30:26.983Z -   DEBUG -                  controller.py: 103 - Attempting to bind socket 1247
+2024-08-05T21:30:26.984Z -   DEBUG -                  controller.py: 110 - Socket 1247 bound and released successfully.
+2024-08-05T21:30:26.986Z -   DEBUG -          database_interface.py:  37 - Syncing .odbc.ini file...
+2024-08-05T21:30:26.987Z -   DEBUG -                     execute.py:  50 - Calling ['odbcinst', '-i', '-s', '-h', '-r'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:30:28.140Z -   DEBUG -                     execute.py:  35 - Command ['odbcinst', '-i', '-s', '-h', '-r'] returned with code 0.
+stdin:
+  [iRODS Catalog]
+  Driver=PostgreSQL ANSI
+  Description=iRODS Catalog
+  Trace=No
+  Debug=0
+  CommLog=0
+  TraceFile=
+  Database=ICAT
+  Servername=365fec06c3e7
+  Port=5432
+  ReadOnly=No
+  Ksqo=0
+  RowVersioning=No
+  ShowSystemTables=No
+  ShowOidColumn=No
+  FakeOidIndex=No
+  ConnSettings=
+stdout:
+  odbcinst: Sections and Entries from stdin have been added to ODBC.INI
+2024-08-05T21:30:28.141Z -   DEBUG -                     execute.py:  50 - Calling ['odbcinst', '-i', '-s', '-h', '-r'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:30:28.150Z -   DEBUG -                     execute.py:  35 - Command ['odbcinst', '-i', '-s', '-h', '-r'] returned with code 0.
+stdin:
+  [iRODS Catalog]
+  Driver=PostgreSQL ANSI
+  Description=iRODS Catalog
+  Trace=No
+  Debug=0
+  CommLog=0
+  TraceFile=
+  Database=ICAT
+  Servername=365fec06c3e7
+  Port=5432
+  ReadOnly=No
+  Ksqo=0
+  RowVersioning=No
+  ShowSystemTables=No
+  ShowOidColumn=No
+  FakeOidIndex=No
+  ConnSettings=
+stdout:
+  odbcinst: Sections and Entries from stdin have been added to ODBC.INI
+2024-08-05T21:30:28.180Z -    INFO -          database_interface.py:  40 - Ensuring catalog schema is up-to-date...
+2024-08-05T21:30:28.180Z -   DEBUG -            database_connect.py: 242 - Executing SQL statement:
+select option_value from R_GRID_CONFIGURATION where namespace='database' and option_name='schema_version';
+with the following parameters:
+()
+2024-08-05T21:30:28.185Z -   DEBUG -            database_connect.py: 305 - Schema_version in database: 11
+2024-08-05T21:30:28.185Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:28.185Z -    INFO -          database_interface.py:  44 - Catalog schema is up-to-date.
+2024-08-05T21:30:28.186Z -    INFO -                  controller.py: 133 - Starting iRODS server ...
+2024-08-05T21:30:28.186Z -   DEBUG -                     execute.py:  50 - Calling ['/usr/sbin/irodsServer', '-t'] with options:
+{'cwd': '/usr/sbin',
+ 'env': 'HIDDEN',
+ 'shell': False,
+ 'stderr': -1,
+ 'stdout': -1}
+2024-08-05T21:30:28.230Z -   DEBUG -                     execute.py:  35 - Command ['/usr/sbin/irodsServer', '-t'] returned with code 0.
+2024-08-05T21:30:28.230Z -   DEBUG -                  controller.py: 146 - Attempting to connect to iRODS server on port 1247. Attempt #1
+2024-08-05T21:30:29.232Z -   DEBUG -                  controller.py: 146 - Attempting to connect to iRODS server on port 1247. Attempt #2
+2024-08-05T21:30:29.232Z -   DEBUG -                  controller.py: 151 - Successfully connected to port 1247.
+2024-08-05T21:30:29.233Z -    INFO -                  controller.py: 164 - Success
+2024-08-05T21:30:29.273Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:30:29.274Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:30:29.274Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:30:29.274Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:30:29.275Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:30:29.275Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:30:29.281Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:29.281Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:30:29.281Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:30:29.282Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:29.282Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:29.282Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:29.282Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:30:29.468Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:30:29.469Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:29.470Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:30:29.471Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:30:29.471Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:29.472Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:30:29.472Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:30:29.473Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:29.473Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:29.474Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:29.474Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:30:29.630Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:30:29.630Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:29.631Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:29.631Z -   DEBUG -                     execute.py:  50 - Calling ['iadmin', 'mkuser', 'otherrods', 'rodsadmin'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:29.822Z -   DEBUG -                     execute.py:  35 - Command ['iadmin', 'mkuser', 'otherrods', 'rodsadmin'] returned with code 0.
+2024-08-05T21:30:29.822Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:29.823Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:29.823Z -   DEBUG -                     execute.py:  50 - Calling ['iadmin', 'moduser', 'otherrods', 'password', 'rods'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:30.037Z -   DEBUG -                     execute.py:  35 - Command ['iadmin', 'moduser', 'otherrods', 'password', 'rods'] returned with code 0.
+2024-08-05T21:30:30.039Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:30.039Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:30.040Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:30.040Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:30:30.247Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:30:30.248Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:30.249Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:30.249Z -   DEBUG -                     execute.py:  50 - Calling ['imkdir', '/tempZone/home/otherrods/2024-08-05Z21:30:30--irods-testing-_z3qkd_e'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:30.469Z -   DEBUG -                     execute.py:  35 - Command ['imkdir', '/tempZone/home/otherrods/2024-08-05Z21:30:30--irods-testing-_z3qkd_e'] returned with code 0.
+2024-08-05T21:30:30.470Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:30.471Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:30.471Z -   DEBUG -                     execute.py:  50 - Calling ['icd', '/tempZone/home/otherrods/2024-08-05Z21:30:30--irods-testing-_z3qkd_e'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:30.686Z -   DEBUG -                     execute.py:  35 - Command ['icd', '/tempZone/home/otherrods/2024-08-05Z21:30:30--irods-testing-_z3qkd_e'] returned with code 0.
+2024-08-05T21:30:30.687Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:30.688Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:30:30.689Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:30:30.689Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:30.689Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:30:30.690Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:30:30.691Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:30.691Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:30.692Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:30.692Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:30:30.858Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:30:30.859Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:30.860Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:30.860Z -   DEBUG -                     execute.py:  50 - Calling ['iadmin', 'mkuser', 'alice', 'rodsuser'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:31.061Z -   DEBUG -                     execute.py:  35 - Command ['iadmin', 'mkuser', 'alice', 'rodsuser'] returned with code 0.
+2024-08-05T21:30:31.061Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:31.062Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:31.063Z -   DEBUG -                     execute.py:  50 - Calling ['iadmin', 'moduser', 'alice', 'password', 'apass'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:31.232Z -   DEBUG -                     execute.py:  35 - Command ['iadmin', 'moduser', 'alice', 'password', 'apass'] returned with code 0.
+2024-08-05T21:30:31.233Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:31.234Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:31.234Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:31.235Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:30:31.407Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  apass
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:30:31.408Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:31.409Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:31.409Z -   DEBUG -                     execute.py:  50 - Calling ['imkdir', '/tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:31.633Z -   DEBUG -                     execute.py:  35 - Command ['imkdir', '/tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o'] returned with code 0.
+2024-08-05T21:30:31.634Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:31.635Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:31.635Z -   DEBUG -                     execute.py:  50 - Calling ['icd', '/tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:31.824Z -   DEBUG -                     execute.py:  35 - Command ['icd', '/tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o'] returned with code 0.
+2024-08-05T21:30:31.826Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:31.827Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:30:31.827Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:30:31.828Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:31.828Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:30:31.829Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:30:31.830Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:31.830Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:31.831Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:31.832Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:30:32.027Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:30:32.028Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:32.029Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:32.029Z -   DEBUG -                     execute.py:  50 - Calling ['iadmin', 'mkuser', 'bobby', 'rodsuser'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:32.205Z -   DEBUG -                     execute.py:  35 - Command ['iadmin', 'mkuser', 'bobby', 'rodsuser'] returned with code 0.
+2024-08-05T21:30:32.206Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:32.207Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:32.207Z -   DEBUG -                     execute.py:  50 - Calling ['iadmin', 'moduser', 'bobby', 'password', 'bpass'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:32.404Z -   DEBUG -                     execute.py:  35 - Command ['iadmin', 'moduser', 'bobby', 'password', 'bpass'] returned with code 0.
+2024-08-05T21:30:32.405Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:32.406Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:32.407Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:32.407Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:30:32.597Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  bpass
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:30:32.598Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:32.598Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:32.599Z -   DEBUG -                     execute.py:  50 - Calling ['imkdir', '/tempZone/home/bobby/2024-08-05Z21:30:32--irods-testing-33hlubps'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:32.808Z -   DEBUG -                     execute.py:  35 - Command ['imkdir', '/tempZone/home/bobby/2024-08-05Z21:30:32--irods-testing-33hlubps'] returned with code 0.
+2024-08-05T21:30:32.809Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:32.810Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:32.810Z -   DEBUG -                     execute.py:  50 - Calling ['icd', '/tempZone/home/bobby/2024-08-05Z21:30:32--irods-testing-33hlubps'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:33.013Z -   DEBUG -                     execute.py:  35 - Command ['icd', '/tempZone/home/bobby/2024-08-05Z21:30:32--irods-testing-33hlubps'] returned with code 0.
+2024-08-05T21:30:33.015Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:33.015Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:33.016Z -   DEBUG -                     execute.py:  50 - Calling ['iadmin', 'mkresc', 'TestResc', 'unixfilesystem', '226b6894d9f2:/tmp/irods/TestResc'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:33.218Z -   DEBUG -                     execute.py:  35 - Command ['iadmin', 'mkresc', 'TestResc', 'unixfilesystem', '226b6894d9f2:/tmp/irods/TestResc'] returned with code 0.
+stdout:
+  Creating resource:
+  Name:		"TestResc"
+  Type:		"unixfilesystem"
+  Host:		"226b6894d9f2"
+  Path:		"/tmp/irods/TestResc"
+  Context:	""
+2024-08-05T21:30:33.219Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:33.220Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:33.221Z -   DEBUG -                     execute.py:  50 - Calling ['iadmin', 'mkresc', 'AnotherResc', 'unixfilesystem', '226b6894d9f2:/tmp/irods/AnotherResc'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:33.416Z -   DEBUG -                     execute.py:  35 - Command ['iadmin', 'mkresc', 'AnotherResc', 'unixfilesystem', '226b6894d9f2:/tmp/irods/AnotherResc'] returned with code 0.
+stdout:
+  Creating resource:
+  Name:		"AnotherResc"
+  Type:		"unixfilesystem"
+  Host:		"226b6894d9f2"
+  Path:		"/tmp/irods/AnotherResc"
+  Context:	""
+2024-08-05T21:30:33.417Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:33.418Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:33.418Z -   DEBUG -                     execute.py:  50 - Calling ['imkdir', 'testdir'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:33.636Z -   DEBUG -                     execute.py:  35 - Command ['imkdir', 'testdir'] returned with code 0.
+2024-08-05T21:30:33.637Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:33.637Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:33.638Z -   DEBUG -                     execute.py:  50 - Calling ['iput', 'testfile.txt'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:33.890Z -   DEBUG -                     execute.py:  35 - Command ['iput', 'testfile.txt'] returned with code 0.
+2024-08-05T21:30:33.890Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:33.891Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:33.892Z -   DEBUG -                     execute.py:  50 - Calling ['icp', 'testfile.txt', '../../public/'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:34.196Z -   DEBUG -                     execute.py:  35 - Command ['icp', 'testfile.txt', '../../public/'] returned with code 0.
+2024-08-05T21:30:34.197Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:34.198Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:34.198Z -   DEBUG -                     execute.py:  50 - Calling ['ichmod', 'read', 'alice', '../../public/testfile.txt'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:34.424Z -   DEBUG -                     execute.py:  35 - Command ['ichmod', 'read', 'alice', '../../public/testfile.txt'] returned with code 0.
+2024-08-05T21:30:34.425Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:34.426Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:34.426Z -   DEBUG -                     execute.py:  50 - Calling ['ichmod', 'write', 'bobby', '../../public/testfile.txt'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:34.632Z -   DEBUG -                     execute.py:  35 - Command ['ichmod', 'write', 'bobby', '../../public/testfile.txt'] returned with code 0.
+2024-08-05T21:30:34.636Z -   DEBUG -                     execute.py:  50 - Calling ['dd', 'if=/dev/zero', 'of=/tmp/irods-test-icommands-recursive/test_cancel_large_put/junk0000', 'count=1073741', 'bs=1000'] with options:
+{'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:36.417Z -   DEBUG -                     execute.py:  35 - Command ['dd', 'if=/dev/zero', 'of=/tmp/irods-test-icommands-recursive/test_cancel_large_put/junk0000', 'count=1073741', 'bs=1000'] returned with code 0.
+stderr:
+  1073741+0 records in
+  1073741+0 records out
+  1073741000 bytes (1.1 GB, 1.0 GiB) copied, 1.77485 s, 605 MB/s
+2024-08-05T21:30:36.417Z -   DEBUG -                     execute.py:  50 - Calling ['dd', 'if=/dev/zero', 'of=/tmp/irods-test-icommands-recursive/test_cancel_large_put/junk0000', 'count=1', 'bs=824', 'oflag=append', 'conv=notrunc'] with options:
+{'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:36.422Z -   DEBUG -                     execute.py:  35 - Command ['dd', 'if=/dev/zero', 'of=/tmp/irods-test-icommands-recursive/test_cancel_large_put/junk0000', 'count=1', 'bs=824', 'oflag=append', 'conv=notrunc'] returned with code 0.
+stderr:
+  1+0 records in
+  1+0 records out
+  824 bytes copied, 6.0032e-05 s, 13.7 MB/s
+2024-08-05T21:30:36.422Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:36.423Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:30:36.423Z -   DEBUG -                     execute.py:  50 - Calling ['iquest', '%s', "select RESC_VAULT_PATH where RESC_NAME = 'demoResc'"] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:30:36.610Z -   DEBUG -                     execute.py:  35 - Command ['iquest', '%s', "select RESC_VAULT_PATH where RESC_NAME = 'demoResc'"] returned with code 0.
+stdout:
+  /var/lib/irods/Vault
+2024-08-05T21:30:36.611Z -   DEBUG -                     execute.py:  50 - Calling ['iput', '/tmp/irods-test-icommands-recursive/test_cancel_large_put/junk0000'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:41.962Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:41.963Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:41.963Z -   DEBUG -                     execute.py:  50 - Calling ['ils', '-l'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:42.203Z -   DEBUG -                     execute.py:  35 - Command ils -l returned with code 0.
+stdout:
+  /tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o:
+    alice             0 demoResc            0 2024-08-05.21:30 ? junk0000
+2024-08-05T21:31:42.365Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:42.365Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:42.366Z -   DEBUG -                     execute.py:  50 - Calling ['icd'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:42.380Z -   DEBUG -                     execute.py:  35 - Command icd returned with code 0.
+2024-08-05T21:31:42.380Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:42.381Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:42.381Z -   DEBUG -                     execute.py:  50 - Calling ['irm', 'testfile.txt', '../public/testfile.txt'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:42.695Z -   DEBUG -                     execute.py:  35 - Command ['irm', 'testfile.txt', '../public/testfile.txt'] returned with code 3.
+stderr:
+  remote addresses: 10.201.24.4 ERROR: rmUtil: srcPath /tempZone/home/otherrods/testfile.txt does not exist
+2024-08-05T21:31:42.696Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:42.697Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:42.697Z -   DEBUG -                     execute.py:  50 - Calling ['irm', '-rf', '../../bundle'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:42.899Z -   DEBUG -                     execute.py:  35 - Command irm -rf ../../bundle returned with code 0.
+2024-08-05T21:31:42.900Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:42.900Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:42.901Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:42.902Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:42.903Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:42.903Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:42.904Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:43.087Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:43.088Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:43.089Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:43.090Z -   DEBUG -                     execute.py:  50 - Calling ['icd'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:43.117Z -   DEBUG -                     execute.py:  35 - Command icd returned with code 0.
+2024-08-05T21:31:43.118Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:43.119Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:43.119Z -   DEBUG -                     execute.py:  50 - Calling ['irm', '-rf', '/tempZone/home/otherrods/2024-08-05Z21:30:30--irods-testing-_z3qkd_e'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:43.373Z -   DEBUG -                     execute.py:  35 - Command ['irm', '-rf', '/tempZone/home/otherrods/2024-08-05Z21:30:30--irods-testing-_z3qkd_e'] returned with code 0.
+2024-08-05T21:31:43.374Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:43.374Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:43.374Z -   DEBUG -                     execute.py:  50 - Calling ['irmtrash'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:43.643Z -   DEBUG -                     execute.py:  35 - Command irmtrash returned with code 0.
+2024-08-05T21:31:43.645Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:43.645Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:43.646Z -   DEBUG -                     execute.py:  50 - Calling ['iadmin', 'rmuser', 'otherrods'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:43.820Z -   DEBUG -                     execute.py:  35 - Command ['iadmin', 'rmuser', 'otherrods'] returned with code 0.
+2024-08-05T21:31:43.821Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:43.822Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:43.822Z -   DEBUG -                     execute.py:  50 - Calling ['icd'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:43.848Z -   DEBUG -                     execute.py:  35 - Command icd returned with code 0.
+2024-08-05T21:31:43.849Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:43.849Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:43.850Z -   DEBUG -                     execute.py:  50 - Calling ['irm', '-rf', '/tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:44.083Z -   DEBUG -                     execute.py:  35 - Command ['irm', '-rf', '/tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o'] returned with code 3.
+stderr:
+  remote addresses: 10.201.24.4 ERROR: rmUtil: rm error for /tempZone/home/alice/2024-08-05Z21:30:31--irods-testing-h_p9i74o, status = -821000 status = -821000 CAT_COLLECTION_NOT_EMPTY
+2024-08-05T21:31:44.094Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:44.094Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:44.095Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:44.096Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:44.097Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:44.097Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:44.098Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:44.290Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:44.291Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:44.292Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:44.293Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:44.293Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:44.293Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:44.294Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:44.295Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:44.295Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:44.296Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:44.296Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:44.466Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:44.467Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:44.468Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:44.468Z -   DEBUG -                     execute.py:  50 - Calling ['iadmin', 'mkuser', 'otherrods', 'rodsadmin'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:44.656Z -   DEBUG -                     execute.py:  35 - Command ['iadmin', 'mkuser', 'otherrods', 'rodsadmin'] returned with code 0.
+2024-08-05T21:31:44.657Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:44.658Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:44.658Z -   DEBUG -                     execute.py:  50 - Calling ['iadmin', 'moduser', 'otherrods', 'password', 'rods'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:44.859Z -   DEBUG -                     execute.py:  35 - Command ['iadmin', 'moduser', 'otherrods', 'password', 'rods'] returned with code 0.
+2024-08-05T21:31:44.860Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:44.860Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:44.861Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:44.861Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:45.042Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:45.043Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:45.043Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:45.043Z -   DEBUG -                     execute.py:  50 - Calling ['imkdir', '/tempZone/home/otherrods/2024-08-05Z21:31:44--irods-testing-k2oxaama'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:45.250Z -   DEBUG -                     execute.py:  35 - Command ['imkdir', '/tempZone/home/otherrods/2024-08-05Z21:31:44--irods-testing-k2oxaama'] returned with code 0.
+2024-08-05T21:31:45.251Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:45.252Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:45.252Z -   DEBUG -                     execute.py:  50 - Calling ['icd', '/tempZone/home/otherrods/2024-08-05Z21:31:44--irods-testing-k2oxaama'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:45.441Z -   DEBUG -                     execute.py:  35 - Command ['icd', '/tempZone/home/otherrods/2024-08-05Z21:31:44--irods-testing-k2oxaama'] returned with code 0.
+2024-08-05T21:31:45.443Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:45.444Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:45.444Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:45.445Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:45.445Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:45.446Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:45.446Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:45.447Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:45.447Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:45.448Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:45.648Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:45.649Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:45.650Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:45.650Z -   DEBUG -                     execute.py:  50 - Calling ['iadmin', 'mkuser', 'alice', 'rodsuser'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:45.852Z -   DEBUG -                     execute.py:  35 - Command ['iadmin', 'mkuser', 'alice', 'rodsuser'] returned with code 4.
+stdout:
+  Level 0: DEBUG: 
+  
+stderr:
+  remote addresses: 10.201.24.4 ERROR: rcGeneralAdmin failed with error -806000 CAT_SQL_ERR 
+2024-08-05T21:31:45.856Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:45.857Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:45.857Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:45.858Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:45.858Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:45.859Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:45.859Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:46.014Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:46.016Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:46.017Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:46.018Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:46.019Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:46.019Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:46.020Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:46.021Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:46.022Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:46.022Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:46.023Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:46.203Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:46.204Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:46.205Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:46.205Z -   DEBUG -                     execute.py:  50 - Calling ['iadmin', 'mkuser', 'otherrods', 'rodsadmin'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:46.406Z -   DEBUG -                     execute.py:  35 - Command ['iadmin', 'mkuser', 'otherrods', 'rodsadmin'] returned with code 4.
+stdout:
+  Level 0: DEBUG: 
+  
+stderr:
+  remote addresses: 10.201.24.4 ERROR: rcGeneralAdmin failed with error -806000 CAT_SQL_ERR 
+2024-08-05T21:31:46.412Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:46.412Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:46.413Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:46.414Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:46.415Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:46.415Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:46.415Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:46.622Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:46.623Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:46.624Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:46.625Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:46.625Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:46.625Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:46.626Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:46.626Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:46.627Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:46.627Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:46.628Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:46.811Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:46.812Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:46.812Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:46.812Z -   DEBUG -                     execute.py:  50 - Calling ['iadmin', 'mkuser', 'otherrods', 'rodsadmin'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:47.009Z -   DEBUG -                     execute.py:  35 - Command ['iadmin', 'mkuser', 'otherrods', 'rodsadmin'] returned with code 4.
+stdout:
+  Level 0: DEBUG: 
+  
+stderr:
+  remote addresses: 10.201.24.4 ERROR: rcGeneralAdmin failed with error -806000 CAT_SQL_ERR 
+2024-08-05T21:31:47.013Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:47.013Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:47.014Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:47.015Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:47.015Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:47.016Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:47.019Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:47.206Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:47.207Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:47.208Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:47.209Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:47.209Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:47.210Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:47.210Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:47.211Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:47.212Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:47.212Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:47.213Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:47.423Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:47.424Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:47.424Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:47.425Z -   DEBUG -                     execute.py:  50 - Calling ['iadmin', 'mkuser', 'otherrods', 'rodsadmin'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:47.610Z -   DEBUG -                     execute.py:  35 - Command ['iadmin', 'mkuser', 'otherrods', 'rodsadmin'] returned with code 4.
+stdout:
+  Level 0: DEBUG: 
+  
+stderr:
+  remote addresses: 10.201.24.4 ERROR: rcGeneralAdmin failed with error -806000 CAT_SQL_ERR 
+2024-08-05T21:31:47.613Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:47.614Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:47.614Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:47.615Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:47.615Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:47.615Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:47.615Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:47.808Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:47.809Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:47.809Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:47.810Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:47.810Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:47.810Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:47.811Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:47.811Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:47.812Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:47.812Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:47.812Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:47.998Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:47.999Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.000Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.000Z -   DEBUG -                     execute.py:  50 - Calling ['iadmin', 'mkuser', 'otherrods', 'rodsadmin'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:48.201Z -   DEBUG -                     execute.py:  35 - Command ['iadmin', 'mkuser', 'otherrods', 'rodsadmin'] returned with code 4.
+stdout:
+  Level 0: DEBUG: 
+  
+stderr:
+  remote addresses: 10.201.24.4 ERROR: rcGeneralAdmin failed with error -806000 CAT_SQL_ERR 
+2024-08-05T21:31:48.209Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.210Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:48.210Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:48.211Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.212Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.212Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.213Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:48.400Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:48.401Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.402Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:48.403Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:48.403Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.403Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:48.404Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:48.405Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.406Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.406Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.407Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:48.612Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:48.613Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.614Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.614Z -   DEBUG -                     execute.py:  50 - Calling ['iadmin', 'mkuser', 'otherrods', 'rodsadmin'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:48.793Z -   DEBUG -                     execute.py:  35 - Command ['iadmin', 'mkuser', 'otherrods', 'rodsadmin'] returned with code 4.
+stdout:
+  Level 0: DEBUG: 
+  
+stderr:
+  remote addresses: 10.201.24.4 ERROR: rcGeneralAdmin failed with error -806000 CAT_SQL_ERR 
+2024-08-05T21:31:48.796Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.797Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:48.797Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:48.798Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.798Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.798Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.798Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:48.985Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:48.986Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.986Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:48.987Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:48.988Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.988Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:48.989Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:48.990Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.990Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.991Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:48.992Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:49.191Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:49.192Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:49.193Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:49.193Z -   DEBUG -                     execute.py:  50 - Calling ['iadmin', 'mkuser', 'otherrods', 'rodsadmin'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:49.420Z -   DEBUG -                     execute.py:  35 - Command ['iadmin', 'mkuser', 'otherrods', 'rodsadmin'] returned with code 4.
+stdout:
+  Level 0: DEBUG: 
+  
+stderr:
+  remote addresses: 10.201.24.4 ERROR: rcGeneralAdmin failed with error -806000 CAT_SQL_ERR 
+2024-08-05T21:31:49.426Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:49.427Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:49.428Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:49.429Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:49.429Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:49.430Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:49.430Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:49.641Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:49.642Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:49.642Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:49.643Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:49.644Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:49.644Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:49.645Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:49.646Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:49.646Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:49.647Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:49.647Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:49.826Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:49.827Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:49.828Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:49.828Z -   DEBUG -                     execute.py:  50 - Calling ['iadmin', 'mkuser', 'otherrods', 'rodsadmin'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:50.001Z -   DEBUG -                     execute.py:  35 - Command ['iadmin', 'mkuser', 'otherrods', 'rodsadmin'] returned with code 4.
+stdout:
+  Level 0: DEBUG: 
+  
+stderr:
+  remote addresses: 10.201.24.4 ERROR: rcGeneralAdmin failed with error -806000 CAT_SQL_ERR 
+2024-08-05T21:31:50.005Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:50.006Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:50.007Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:50.007Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:50.008Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:50.008Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:50.008Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:50.187Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:50.188Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:50.189Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:50.190Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:50.190Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:50.191Z -   DEBUG -               configuration.py: 437 - Loading /etc/irods/server_config.json into dictionary
+2024-08-05T21:31:50.191Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/.irods/irods_environment.json into dictionary
+2024-08-05T21:31:50.192Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:50.192Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:50.193Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:50.193Z -   DEBUG -                     execute.py:  50 - Calling ['iinit'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdin': -1, 'stdout': -1}
+2024-08-05T21:31:50.380Z -   DEBUG -                     execute.py:  35 - Command iinit returned with code 0.
+stdin:
+  rods
+stdout:
+  WARNING: Error 25 disabling echo mode. Password will be displayed in plaintext.
+  Enter your current iRODS password:
+2024-08-05T21:31:50.381Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:50.382Z -   DEBUG -               configuration.py: 437 - Loading /var/lib/irods/version.json into dictionary
+2024-08-05T21:31:50.382Z -   DEBUG -                     execute.py:  50 - Calling ['iadmin', 'mkuser', 'otherrods', 'rodsadmin'] with options:
+{'env': 'HIDDEN', 'shell': False, 'stderr': -1, 'stdout': -1}
+2024-08-05T21:31:50.560Z -   DEBUG -                     execute.py:  35 - Command ['iadmin', 'mkuser', 'otherrods', 'rodsadmin'] returned with code 4.
+stdout:
+  Level 0: DEBUG: 
+  
+stderr:
+  remote addresses: 10.201.24.4 ERROR: rcGeneralAdmin failed with error -806000 CAT_SQL_ERR 
